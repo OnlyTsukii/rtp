@@ -53,7 +53,7 @@ func NewPacketizer(
 		SSRC:        ssrc,
 		Payloader:   payloader,
 		Sequencer:   sequencer,
-		Timestamp:   globalMathRandomGenerator.Uint32(),
+		Timestamp:   globalMathRandomGenerator.Uint32() % (1 << 16),
 		ClockRate:   clockRate,
 		timegen:     time.Now,
 	}

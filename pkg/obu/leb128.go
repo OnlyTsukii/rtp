@@ -5,7 +5,7 @@
 package obu
 
 import (
-	"github.com/pion/rtp/codecs/av1/obu"
+	"github.com/OnlyTsukii/rtp/codecs/av1/obu"
 )
 
 // ErrFailedToReadLEB128 indicates that a buffer ended before a LEB128 value could be successfully read

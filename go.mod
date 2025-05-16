@@ -1,6 +1,6 @@
-module github.com/pion/rtp
+module github.com/OnlyTsukii/rtp
 
-go 1.20
+go 1.23.9
 
 require (
 	github.com/pion/randutil v0.1.0

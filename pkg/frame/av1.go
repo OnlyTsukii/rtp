@@ -5,7 +5,7 @@
 package frame
 
 import (
-	"github.com/pion/rtp/codecs/av1/frame"
+	"github.com/OnlyTsukii/rtp/codecs/av1/frame"
 )
 
 // AV1 represents a collection of OBUs given a stream of AV1 Packets.

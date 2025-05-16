@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pion/rtp/codecs"
+	"github.com/OnlyTsukii/rtp/codecs"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -4,8 +4,8 @@
 package codecs
 
 import (
+	"github.com/OnlyTsukii/rtp/codecs/vp9"
 	"github.com/pion/randutil"
-	"github.com/pion/rtp/codecs/vp9"
 )
 
 // Use global random generator to properly seed by crypto grade random.

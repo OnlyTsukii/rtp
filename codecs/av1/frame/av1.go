@@ -4,7 +4,7 @@
 // Package frame provides code to construct complete media frames from packetized media.
 package frame
 
-import "github.com/pion/rtp/codecs"
+import "github.com/OnlyTsukii/rtp/codecs"
 
 // AV1 represents a collection of OBUs given a stream of AV1 Packets.
 // Each AV1 RTP Packet is a collection of OBU Elements. Each OBU Element may be a full OBU, or just a fragment of one.

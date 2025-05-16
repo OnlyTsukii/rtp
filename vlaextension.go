@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pion/rtp/codecs/av1/obu"
+	"github.com/OnlyTsukii/rtp/codecs/av1/obu"
 )
 
 var (

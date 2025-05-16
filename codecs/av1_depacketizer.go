@@ -6,7 +6,7 @@ package codecs
 import (
 	"fmt"
 
-	"github.com/pion/rtp/codecs/av1/obu"
+	"github.com/OnlyTsukii/rtp/codecs/av1/obu"
 )
 
 // AV1Depacketizer is a AV1 RTP Packet depacketizer.

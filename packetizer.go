@@ -14,7 +14,7 @@ type Payloader interface {
 
 // Packetizer packetizes a payload.
 type Packetizer interface {
-	Packetize(payload []byte, samples uint32) []*Packet
+	Packetize(payload []byte, payloadType uint8, samples uint32) []*Packet
 	GeneratePadding(samples uint32) []*Packet
 	EnableAbsSendTime(value int)
 	SkipSamples(skippedSamples uint32)
@@ -95,7 +95,7 @@ func NewPacketizerWithOptions(
 		MTU:       mtu,
 		Payloader: payloader,
 		Sequencer: sequencer,
-		Timestamp: globalMathRandomGenerator.Uint32(),
+		Timestamp: globalMathRandomGenerator.Uint32() % (1 << 16),
 		ClockRate: clockRate,
 		timegen:   time.Now,
 	}
@@ -112,7 +112,7 @@ func (p *packetizer) EnableAbsSendTime(value int) {
 }
 
 // Packetize packetizes the payload of an RTP packet and returns one or more RTP packets.
-func (p *packetizer) Packetize(payload []byte, samples uint32) []*Packet {
+func (p *packetizer) Packetize(payload []byte, payloadType uint8, samples uint32) []*Packet {
 	// Guard against an empty payload
 	if len(payload) == 0 {
 		return nil
@@ -128,7 +128,7 @@ func (p *packetizer) Packetize(payload []byte, samples uint32) []*Packet {
 				Padding:        false,
 				Extension:      false,
 				Marker:         i == len(payloads)-1,
-				PayloadType:    p.PayloadType,
+				PayloadType:    payloadType,
 				SequenceNumber: p.Sequencer.NextSequenceNumber(),
 				Timestamp:      p.Timestamp, // Figure out how to do timestamps
 				SSRC:           p.SSRC,
